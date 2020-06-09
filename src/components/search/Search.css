@@ -1,0 +1,13 @@
+.search {
+    padding: 0 10px 10px 10px;
+}
+
+.search-box-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-close-icon {
+    color: #000000;
+    cursor: pointer;
+}

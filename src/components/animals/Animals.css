@@ -1,0 +1,29 @@
+
+
+.cats-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 70px 70vh;
+    justify-content: center;
+}
+
+.cats-search-box {
+    grid-row: 1;
+    border: 1px solid gray;
+    /* box-shadow: 0 4px 2px -2px gray; */
+}
+
+.cats-list-box {
+    grid-row: 2;
+    /* display: inline-block; */
+}
+
+.cats-list {
+    display: flex;
+    direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 20px 10px 20px;
+    overflow-x: hidden;
+    height: 70vh;
+}

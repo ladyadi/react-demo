@@ -1,0 +1,35 @@
+.cat-card {
+    height: 300px;
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.cat-card-title {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #5085A5;
+    padding-left: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .cat-card {
+        height: 275px;
+        width: 225px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .cat-card {
+        height: 250px;
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .cat-card {
+        height: 250px;
+        width: 200px;
+    }
+}

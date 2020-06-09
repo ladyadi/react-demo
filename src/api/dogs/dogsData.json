@@ -1,0 +1,74 @@
+{
+    "dogs": [
+        {
+            "id": "1",
+            "name": "Diggs",
+            "age": 5,
+            "image": "",
+            "location": "Salt Lake City, UT"
+        },
+        {
+            "id": "2",
+            "name": "Fluffy",
+            "age": 2,
+            "image": "",
+            "location": "Lehi, UT"
+        },
+        {
+            "id": "3",
+            "name": "Edamame",
+            "age": 7,
+            "image": "",
+            "location": "Murray, UT"
+        },
+        {
+            "id": "4",
+            "name": "Mr. Dinkleman",
+            "age": 8,
+            "image": "",
+            "location": "Holladay, UT"
+        },
+        {
+            "id": "5",
+            "name": "Rosa",
+            "age": 3,
+            "image": "",
+            "location": "Salt Lake City, UT"
+        },
+        {
+            "id": "6",
+            "name": "Othello",
+            "age": 4,
+            "image": "",
+            "location": "Bountiful, UT"
+        },
+        {
+            "id": "7",
+            "name": "Edwad",
+            "age": 6,
+            "image": "",
+            "location": "Salt Lake City, UT"
+        },
+        {
+            "id": "8",
+            "name": "Max",
+            "age": 8,
+            "image": "",
+            "location": "West Valley City, UT"
+        },
+        {
+            "id": "9",
+            "name": "Oliver",
+            "age": 9,
+            "image": "",
+            "location": "Holladay, UT"
+        },
+        {
+            "id": "10",
+            "name": "Bug",
+            "age": 5,
+            "image": "",
+            "location": "Lehi, UT"
+        }
+    ]
+}
