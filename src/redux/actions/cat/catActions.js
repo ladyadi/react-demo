@@ -52,11 +52,11 @@ export function loadCats() {
 //   return async function (dispatch) {
 //     try {
 //       dispatch(beginApiCall());
-//       const deal = await dealApi.getDealById(data);
-//       if (deal.data) {
-//         dispatch(loadDealSuccess(deal.data));
+//       const cat = await catApi.getCatById(data);
+//       if (cat) {
+//         dispatch(loadCatSuccess(cat));
 //       } else {
-//         dispatch(loadDealNoDataSuccess());
+//         dispatch(loadCatNoDataSuccess());
 //       }
 //     } catch (error) {
 //       //determine action for handling failed api calls
@@ -65,12 +65,11 @@ export function loadCats() {
 //   };
 // }
 
-// export function createDeal(data) {
+// export function createCat(data) {
 //   return async function (dispatch) {
 //     try {
-//       const deal = await dealApi.createDeal(data);
-//       dispatch(createDealSuccess(deal.data));
-//       return deal.data;
+//       const cat = await catApi.createCat(data);
+//       dispatch(createCatSuccess(cat));
 //     } catch (error) {
 //       //determine action for handling failed api calls
 //       throw new Error(error);

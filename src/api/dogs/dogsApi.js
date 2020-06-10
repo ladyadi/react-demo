@@ -1,24 +1,16 @@
 import dogsData from "./dogsData.json";
+// import catsData from "./catsData.json";
 
 export const getDogs = () => {
+  console.log('in dogs api')
+  console.log('DOGS DATA', dogsData.dogs);
   return dogsData.dogs;
 };
 
-// export const getDealById = (dealId) => {
-//   const token = parseCookie.getToken("JWT");
-//   return axios.get(`${url}/deals/${dealId}`, {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       'x-tenant-id': 'master',
-//     },
-//   });
+// export const getDogById = (dogId) => {
+//
 // }
 
-// export const createDeal = (deal) => {
-//   const token = parseCookie.getToken("JWT");
-//   return axios.post(`${url}/deals`, deal, {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   });
+// export const createDog = (dog) => {
+//
 // };

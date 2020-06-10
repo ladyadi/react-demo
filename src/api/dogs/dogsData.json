@@ -2,49 +2,49 @@
     "dogs": [
         {
             "id": "1",
-            "name": "Diggs",
+            "name": "Daggs",
             "age": 5,
             "image": "",
             "location": "Salt Lake City, UT"
         },
         {
             "id": "2",
-            "name": "Fluffy",
+            "name": "Louie",
             "age": 2,
             "image": "",
             "location": "Lehi, UT"
         },
         {
             "id": "3",
-            "name": "Edamame",
+            "name": "Rusty",
             "age": 7,
             "image": "",
             "location": "Murray, UT"
         },
         {
             "id": "4",
-            "name": "Mr. Dinkleman",
+            "name": "Sage",
             "age": 8,
             "image": "",
             "location": "Holladay, UT"
         },
         {
             "id": "5",
-            "name": "Rosa",
+            "name": "Sidney",
             "age": 3,
             "image": "",
             "location": "Salt Lake City, UT"
         },
         {
             "id": "6",
-            "name": "Othello",
+            "name": "Bunker",
             "age": 4,
             "image": "",
             "location": "Bountiful, UT"
         },
         {
             "id": "7",
-            "name": "Edwad",
+            "name": "Diggs",
             "age": 6,
             "image": "",
             "location": "Salt Lake City, UT"

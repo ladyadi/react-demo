@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Animals.css";
 import Search from "../search/Search";
-import CatCard from "./AnimalCard/AnimalCard";
+import AnimalCard from "./AnimalCard/AnimalCard";
 import { connect } from "react-redux";
 import { loadCats } from "../../redux/actions/cat/catActions";
 import {loadDogs} from "../../redux/actions/dog/dogActions";
@@ -19,8 +19,8 @@ export function Animals({
 
     console.log('ANIMAL TYPE', history.location.pathname)
     const animalType = history.location.pathname;
-    const [filteredCats, setFilteredCats] = useState(cats);
-    const [filteredDogs, setFilteredDogs] = useState(dogs);
+    const [filteredCats, setFilteredCats] = useState([]);
+    const [filteredDogs, setFilteredDogs] = useState([]);
 
     useEffect(() => {
         if (animalType === '/cats') {
@@ -37,10 +37,12 @@ export function Animals({
                     console.log('ERR', err);
                 });
             } else {
+                console.log('dogs in animals', dogs)
                 setFilteredDogs(dogs);
+                console.log('filtered dogs', filteredDogs)
             }
         }
-    }, [cats, dogs]);
+    }, [cats, dogs, loadCats, loadDogs, animalType]);
 
     function onSearch(searchText) {
         setFilteredCats(
@@ -49,7 +51,7 @@ export function Animals({
           )
         );
     }
-    
+
     return cats.length === 0 ? (
         <div className="cats-loading">
             Loading...
@@ -61,13 +63,36 @@ export function Animals({
             </div>
             <div className="cats-list-box">
                 <div className="cats-list">
-                    {filteredCats.map((cat) => (
-                        <CatCard key={cat.id} cat={cat} />
+                    {animalType === '/cats' ? 
+                    filteredCats.map((cat) => (
+                        <AnimalCard key={cat.id} animalType="cat" cat={cat} />
+                    )) :
+                    filteredDogs.map((dog) => (
+                        <AnimalCard key={dog.id} animalType="dog" dog={dog} />
                     ))}
                 </div>
             </div>
         </div>
     )
+    
+    // return cats.length === 0 ? (
+    //     <div className="cats-loading">
+    //         Loading...
+    //     </div>
+    // ) : (
+    //     <div className="cats-grid"> 
+    //         <div className="cats-search-box">
+    //             <Search onSearch={onSearch} />
+    //         </div>
+    //         <div className="cats-list-box">
+    //             <div className="cats-list">
+    //                 {filteredCats.map((cat) => (
+    //                     <CatCard key={cat.id} cat={cat} />
+    //                 ))}
+    //             </div>
+    //         </div>
+    //     </div>
+    // )
 }
 
 Animals.propTypes = {
@@ -81,6 +106,7 @@ Animals.propTypes = {
   };
 
   function mapStateToProps(state) {
+      console.log('state.dogs', state.dogs)
     return {
       cats: state.cats,
       dogs: state.dogs,

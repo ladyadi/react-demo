@@ -37,6 +37,7 @@ export function loadDogs() {
       dispatch(beginApiCall());
       const dogs = await dogApi.getDogs();
       if (dogs && dogs.length) {
+        console.log('dogs', dogs)
         dispatch(loadDogsSuccess(dogs));
       } else {
         dispatch(loadDogsNoDataSuccess());
@@ -48,15 +49,15 @@ export function loadDogs() {
   };
 }
 
-// export function loadCatById(data) {
+// export function loadDogById(data) {
 //   return async function (dispatch) {
 //     try {
 //       dispatch(beginApiCall());
-//       const deal = await dealApi.getDealById(data);
-//       if (deal.data) {
-//         dispatch(loadDealSuccess(deal.data));
+//       const dog = await dogApi.getDogById(data);
+//       if (dog) {
+//         dispatch(loadDogSuccess(dog));
 //       } else {
-//         dispatch(loadDealNoDataSuccess());
+//         dispatch(loadDogNoDataSuccess());
 //       }
 //     } catch (error) {
 //       //determine action for handling failed api calls
@@ -65,12 +66,11 @@ export function loadDogs() {
 //   };
 // }
 
-// export function createDeal(data) {
+// export function createDog(data) {
 //   return async function (dispatch) {
 //     try {
-//       const deal = await dealApi.createDeal(data);
-//       dispatch(createDealSuccess(deal.data));
-//       return deal.data;
+//       const dog = await dogApi.createDog(data);
+//       dispatch(createDogSuccess(dog));
 //     } catch (error) {
 //       //determine action for handling failed api calls
 //       throw new Error(error);
