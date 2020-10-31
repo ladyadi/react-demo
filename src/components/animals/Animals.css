@@ -2,7 +2,7 @@
 
 .cats-grid {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 98%;
     grid-template-rows: 70px 70vh;
     justify-content: center;
 }
@@ -11,6 +11,11 @@
     grid-row: 1;
     border: 1px solid gray;
     /* box-shadow: 0 4px 2px -2px gray; */
+    display: flex;
+    direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 70px;
 }
 
 .cats-list-box {
@@ -20,9 +25,9 @@
 
 .cats-list {
     display: flex;
-    direction: column;
+    direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px 20px 10px 20px;
     overflow-x: hidden;
     height: 70vh;

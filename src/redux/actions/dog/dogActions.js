@@ -31,13 +31,11 @@ export function deleteDogSuccess(dog) {
 }
 
 export function loadDogs() {
-    console.log('in load dogs')
   return async function (dispatch) {
     try {
       dispatch(beginApiCall());
       const dogs = await dogApi.getDogs();
       if (dogs && dogs.length) {
-        console.log('dogs', dogs)
         dispatch(loadDogsSuccess(dogs));
       } else {
         dispatch(loadDogsNoDataSuccess());

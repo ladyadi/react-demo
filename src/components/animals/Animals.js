@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Animals.css";
 import Search from "../search/Search";
+import Filter from "../filter/Filter";
 import AnimalCard from "./AnimalCard/AnimalCard";
 import { connect } from "react-redux";
 import { loadCats } from "../../redux/actions/cat/catActions";
@@ -16,40 +17,45 @@ export function Animals({
     loading
 }) {
 
-
-    console.log('ANIMAL TYPE', history.location.pathname)
     const animalType = history.location.pathname;
     const [filteredCats, setFilteredCats] = useState([]);
     const [filteredDogs, setFilteredDogs] = useState([]);
 
     useEffect(() => {
-        if (animalType === '/cats') {
-            if (!cats.length) {
-                loadCats().catch((err) => {
-                    console.log('ERR', err);
-                });
-            } else {
-                setFilteredCats(cats);
-            }
-        } else if (animalType === '/dogs') {
-            if (!dogs.length) {
-                loadDogs().catch((err) => {
-                    console.log('ERR', err);
-                });
-            } else {
-                console.log('dogs in animals', dogs)
-                setFilteredDogs(dogs);
-                console.log('filtered dogs', filteredDogs)
-            }
+        if (!cats.length) {
+            loadCats().catch((err) => {
+                console.log('ERR', err);
+            });
+        } else {
+            setFilteredCats(cats);
         }
-    }, [cats, dogs, loadCats, loadDogs, animalType]);
+        if (!dogs.length) {
+            loadDogs().catch((err) => {
+                console.log('ERR', err);
+            });
+        } else {
+            setFilteredDogs(dogs)
+        }
+    }, [cats, loadCats, dogs, loadDogs, animalType, loading]);
 
     function onSearch(searchText) {
-        setFilteredCats(
-          cats.filter((cat) =>
-            cat.name.toLowerCase().includes(searchText.toLowerCase())
-          )
-        );
+        if (animalType === '/cats') {
+            setFilteredCats(
+                cats.filter((cat) =>
+                  cat.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+              );
+        } else if (animalType === '/dogs') {
+            setFilteredDogs(
+                dogs.filter((dog) =>
+                  dog.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+              );
+        }
+    }
+
+    function onFilter(filters) {
+        console.log('made it', filters);
     }
 
     return cats.length === 0 ? (
@@ -60,6 +66,8 @@ export function Animals({
         <div className="cats-grid"> 
             <div className="cats-search-box">
                 <Search onSearch={onSearch} />
+                <Filter onFilter={onFilter} />
+                {/* add a cat */}
             </div>
             <div className="cats-list-box">
                 <div className="cats-list">
@@ -73,26 +81,7 @@ export function Animals({
                 </div>
             </div>
         </div>
-    )
-    
-    // return cats.length === 0 ? (
-    //     <div className="cats-loading">
-    //         Loading...
-    //     </div>
-    // ) : (
-    //     <div className="cats-grid"> 
-    //         <div className="cats-search-box">
-    //             <Search onSearch={onSearch} />
-    //         </div>
-    //         <div className="cats-list-box">
-    //             <div className="cats-list">
-    //                 {filteredCats.map((cat) => (
-    //                     <CatCard key={cat.id} cat={cat} />
-    //                 ))}
-    //             </div>
-    //         </div>
-    //     </div>
-    // )
+    );
 }
 
 Animals.propTypes = {
@@ -106,7 +95,6 @@ Animals.propTypes = {
   };
 
   function mapStateToProps(state) {
-      console.log('state.dogs', state.dogs)
     return {
       cats: state.cats,
       dogs: state.dogs,

@@ -1,24 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./Search.css";
 import { Icon, Input } from "semantic-ui-react";
 
 export default function Search({ onSearch }) {
-    console.log(typeof onSearch);
-    // const searchRef = React.createRef();
 
-    // useEffect(() => {
-    //     searchRef.current.focus();
-    // })
-
-    // function onClose() {
-    //     onSearch('');
-    //     setSearch(false);
-    // }
-
-    const inputStyle = { maxWidth: '300px', color: '#00909A' };
+    const inputStyle = { maxWidth: '300px', color: '#687864' };
     return (
-        <div className="search">
+        <>
             <div className="search-box-container">
                 <Input
                     icon="search"
@@ -26,17 +15,16 @@ export default function Search({ onSearch }) {
                     onChange={(event) => onSearch(event.target.value)}
                     style={inputStyle}
                     size="small">
-                    {/* input={{ ref: searchRef }} */}
                 </Input>
                 <Icon
                     className="search-close-icon"
                     name="close"
                     size="large"
-                    // onClick={onClose}
-                    style={{ marginLeft: '10px' }}>
+                    onClick={() => onSearch('')}
+                    style={{ marginLeft: '5px', color: '#687864' }}>
                 </Icon>
             </div>
-        </div>
+        </>
     );
 }
 

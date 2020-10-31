@@ -22,7 +22,7 @@ const Header = () => {
                 DOGS 
             </NavLink>
             <NavLink to="/costs" className="header-link" activeStyle={activeStyle}>
-                COSTS
+                COST
             </NavLink>
         </nav>
     );

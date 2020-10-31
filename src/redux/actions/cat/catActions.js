@@ -31,7 +31,6 @@ export function deleteCatSuccess(cat) {
 }
 
 export function loadCats() {
-    console.log('in load cats')
   return async function (dispatch) {
     try {
       dispatch(beginApiCall());
